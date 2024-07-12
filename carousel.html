@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Carousel Section</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .text-section {
+            width: 20%;
+            padding-right: 10px;
+            align-self: center;
+        }
+        .text-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .text-section p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .text-section button {
+            padding: 10px 20px;
+            border: 1px solid #333;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .carousel-section {
+            width: 80%;
+            position: relative;
+            padding-left: 10px;
+        }
+        .glide {
+            width: 100%;
+        }
+        .glide__arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .glide__arrow--left {
+            left: -30px; /* Adjusted for margin */
+        }
+        .glide__arrow--right {
+            right: -30px; /* Adjusted for margin */
+        }
+        .glide__slide {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .glide__slide img {
+            width: 542px; 
+            height: 506.4px;
+            object-fit: cover;
+        }
+        .bg-img-carousel {
+            position: relative;
+            width: 542px; 
+            height: 506.4px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .bg-img-carousel img {
+            display: block;
+        }
+        .bg-img-carousel h2, .bg-img-carousel p, .bg-img-carousel button {
+            color: white;
+            margin: 0;
+        }
+        .bg-img-carousel h2 {
+            font-size: 24px;
+        }
+        .bg-img-carousel p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .bg-img-carousel button {
+            padding: 10px 20px;
+            border: 1px solid #333;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .bg-img-carousel img[src$="95.svg"] {
+            margin-bottom: 20px;
+            width: 83px;
+            height: 74.51px;
+        }
+        @media (max-width: 430px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .text-section, .carousel-section {
+                width: 100%;
+                padding: 0;
+            }
+            .glide__arrow {
+                display: none;
+            }
+            .glide__slide {
+                flex-direction: column;
+            }
+            .glide__slide img {
+                width: 100%;
+                height: auto;
+            }
+            .bg-img-carousel {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h2>Merchant's Pick</h2>
+            <p>Hand-selected features for both budding enthusiasts and avid collectors.</p>
+            <button>View All</button>
+        </div>
+        <div class="carousel-section">
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <img src="/Img/15.jpg" alt="Image 1">
+                            <div class="bg-img-carousel" style="background-image: url('/Img/22.png');">
+                                <h2>2018 Poggiotondo, Brunello di Montalcino</h2>
+                                <p>Brunello at this price and Quality is your new house pour</p>
+                                <img src="/Img/95.svg" alt="Decorative">
+                                <button>More</button>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <img src="https://via.placeholder.com/400x400?text=Image+3" alt="Image 3">
+                            <img src="https://via.placeholder.com/400x400?text=Image+4" alt="Image 4">
+                        </li>
+                        <li class="glide__slide">
+                            <img src="https://via.placeholder.com/400x400?text=Image+5" alt="Image 5">
+                            <img src="https://via.placeholder.com/400x400?text=Image+6" alt="Image 6">
+                        </li>
+                    </ul>
+                </div>
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">&lt;</button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">&gt;</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new Glide('.glide', {
+                type: 'carousel',
+                startAt: 0,
+                perView: 1,
+                gap: 10,
+            }).mount();
+        });
+    </script>
+</body>
+</html>
